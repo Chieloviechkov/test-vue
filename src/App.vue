@@ -34,7 +34,7 @@ html{
   background-color: black
 }
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
-@import url('file:///C:/Users/chelo/OneDrive/Рабочий%20стол/TestVue.js/Style.css');
+@import url('file:///C:/Users/chelo/OneDrive/Рабочий стол/TestVue.js/test-vue/src/Style.css');
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 
 </style>
