@@ -1,26 +1,28 @@
 <template>
   <div id="app">
-    <my-component
-      :myTextProp="textFromParent"
-      :myAdditionalTextProp="additionalTextFromParent"
-    />
-    
+    <HeaderView></HeaderView> 
+    <LastGames></LastGames>
+    <router-view></router-view>
+    <FooterApozh></FooterApozh>
   </div>
 </template>
 
 <script>
-import MyComponent from './components/HelloWorld.vue';
+import HeaderView from './components/HeaderView.vue'; 
+import LastGames from './components/LastGames.vue';
+import FooterApozh from './components/FooterApozh.vue';
+
 
 export default {
   name: 'App',
   components: {
-    MyComponent,
-
+    HeaderView,
+    LastGames,
+    FooterApozh  
   },
   data() {
     return {
-      textFromParent: "Best Developers <span style='font-weight: normal;'>On The Planet</span>",
-      additionalTextFromParent: "This Product integrates with your favorite apps to automate workflows and ensure smooth, productive work days.",
+      
     };
   },
 };
@@ -29,14 +31,10 @@ export default {
 
 <style>
 html{
-  background: rgba(0, 161, 198, 0.05);
-}
-#app {
-  font-family: IBM Plex Sans;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background-color: black
 }
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@import url('file:///C:/Users/chelo/OneDrive/Рабочий%20стол/TestVue.js/Style.css');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
 </style>
