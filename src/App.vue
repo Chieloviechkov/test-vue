@@ -18,7 +18,7 @@ export default {
   components: {
     HeaderView,
     LastGames,
-    FooterApozh  
+    FooterApozh
   },
   data() {
     return {
