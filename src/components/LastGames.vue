@@ -27,6 +27,25 @@ export default {
       windowWidth: window.innerWidth,
     isSmallScreen: window.innerWidth < 767,
       matches: [
+      {
+          team1: 'FC APOZH',
+          team1Logo: require('@/assets/MainLogo2.png'),
+          score: '1 : 0',
+          team2: 'Круїзи',
+          team2Logo: require('@/assets/Kryizy.jpg')
+        },{
+          team1: 'FC APOZH',
+          team1Logo: require('@/assets/MainLogo2.png'),
+          score: '3 : 0',
+          team2: 'Квартал',
+          team2Logo: require('@/assets/Kvartal.png')
+        },{
+          team1: 'FC ALP INDUSTRIA',
+          team1Logo: require('@/assets/Calipso.png'),
+          score: '4 : 3',
+          team2: 'FC APOZH',
+          team2Logo: require('@/assets/MainLogo2.png')
+        },
         {
           team1: 'ДПС',
           team1Logo: require('@/assets/ksl.png'),
@@ -90,27 +109,6 @@ export default {
           team2: 'FC Angel City',
           team2Logo: require('@/assets/AngelCity.png')
         },
-        {
-          team1: 'FC APOZH',
-          team1Logo: require('@/assets/MainLogo2.png'),
-          score: '5 : 0',
-          team2: 'TURBO SNAILS',
-          team2Logo: require('@/assets/turbo.png'),
-        },
-        {
-          team1: 'FC APOZH',
-          team1Logo: require('@/assets/MainLogo2.png'),
-          score: '2 : 3',
-          team2: 'Прометей',
-          team2Logo: require('@/assets/Prometeus (2).png')
-        },
-        {
-          team1: 'AFC Fortuna Kyiv',
-          team1Logo: require('@/assets/fortuna.png'),
-          score: '1 : 4',
-          team2: 'FC APOZH',
-          team2Logo: require('@/assets/MainLogo2.png')
-        }
       ],
       currentMatchIndex: 0,
       matchesPerPage: 4,
@@ -148,23 +146,21 @@ export default {
       return team1Score > team2Score;
     },
     handleResize() {
-    const currentWidth = window.innerWidth;
+      const currentWidth = window.innerWidth;
 
-    if (currentWidth < 767 && !this.isSmallScreen) {
-      
-      location.reload();
-    } else if (currentWidth >= 767 && this.isSmallScreen) {
-      
-      location.reload();
-    }
+      if (currentWidth < 767 && !this.isSmallScreen) {
+        location.reload();
+      } else if (currentWidth >= 767 && this.isSmallScreen) {
+        location.reload();
+      }
 
-    this.windowWidth = currentWidth; 
-    this.isSmallScreen = currentWidth < 767; 
-  },
+      this.windowWidth = currentWidth;
+      this.isSmallScreen = currentWidth < 767;
+    },
   },
   mounted() {
     window.addEventListener('resize', this.handleResize);
-  this.handleResize();
+    this.handleResize();
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);

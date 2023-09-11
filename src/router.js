@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'; // Импорт функций
+import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './views/HomeApozh.vue';
-import StatisticApozh from './views/StatisticApozh.vue'; // Импортируйте компоненt
-import NewsApozh from './views/NewsApozh.vue'; // Импортируйте компоненt
+import StatisticApozh from './views/StatisticApozh.vue'; 
+import NewsApozh from './views/NewsApozh.vue'; 
 import PhotoApozh from './views/PhotoApozh.vue';
 import PlayersApozh from './views/PlayersApozh.vue';
 import AchievementApozh from './views/AchievementApozh.vue';
@@ -9,34 +9,34 @@ import AchievementApozh from './views/AchievementApozh.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     component: HomePage,
   },
   {
     path: '/statistics',
     name: 'Statistic',
-    component: StatisticApozh // Используйте импортированный компонент
+    component: StatisticApozh 
   },
   
   {
     path: '/news',
     name: 'News',
-    component: NewsApozh // Используйте импортированный компонент
+    component: NewsApozh 
   },
   {
     path: '/photo',
     name: 'Photo',
-    component: PhotoApozh // Используйте импортированный компонент
+    component: PhotoApozh 
   },
   {
     path: '/players',
     name: 'Players',
-    component: PlayersApozh // Используйте импортированный компонент
+    component: PlayersApozh
   },
   {
     path: '/achievements',
     name: 'Achievement',
-    component: AchievementApozh // Используйте импортированный компонент
+    component: AchievementApozh
   },
   
 ];

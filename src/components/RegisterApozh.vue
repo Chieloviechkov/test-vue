@@ -1,16 +1,18 @@
 <template>
   <div class="text-center p-5">
-    <h1 class="text-light mb-4">Sing up</h1>
+    <h1 class="text-light mb-4">Sign up</h1>
     <form @submit.prevent="register">
       <div class="form-group">
-        <label for="username" class="text-light font-size-big">Name</label>
+        <label for="username" class="text-light font-size-big">E-mail</label>
         <input
           type="text"
           id="username"
           v-model="username"
           class="form-control"
           required
+          @input="checkEmail"
         />
+        <div class="text-light">{{ emailMessage }}</div>
       </div>
       <div class="form-group">
         <label for="password" class="text-light">Password</label>
@@ -20,9 +22,11 @@
           v-model="password"
           class="form-control"
           required
+          @input="checkPassword"
         />
+        <div class="text-light">{{ passwordMessage }}</div>
       </div>
-      <button type="submit" class="button text-light">OK</button>
+      <button :disabled="!isFormValid" @click="closeModal" type="submit" class="button text-light">OK</button>
     </form>
   </div>
 </template>
@@ -33,12 +37,35 @@ export default {
     return {
       username: "",
       password: "",
+      emailMessage: "",
+      passwordMessage: "",
+      isFormValid: false,
     };
   },
   methods: {
-    register() {
-      console.log("Имя: ", this.username);
-      console.log("Пароль: ", this.password);
+    closeModal() {
+      this.$emit('close');
+    },
+    checkEmail() {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (emailPattern.test(this.username)) {
+        this.emailMessage = "";
+      } else {
+        this.emailMessage = "Некоректний логін";
+      }
+      this.validateForm();
+    },
+    checkPassword() {
+      const passwordPattern = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+      if (passwordPattern.test(this.password)) {
+        this.passwordMessage = "";
+      } else {
+        this.passwordMessage = "Пароль повинен мати хоча б одне число, одну велику літеру, та довжину більше 8 символів";
+      }
+      this.validateForm();
+    },
+    validateForm() {
+      this.isFormValid = this.emailMessage === "" && this.passwordMessage === "";
     },
   },
 };

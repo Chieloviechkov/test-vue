@@ -1,11 +1,11 @@
-import 'jquery'; // Импортируйте jQuery, если он требуется
-import 'popper.js'; // Импортируйте Popper.js, если он требуется
-import 'bootstrap'; // Импортируйте Bootstrap JS, если он требуется
-import { createApp } from 'vue'; // Импорт функции createApp
+import 'jquery'; 
+import 'popper.js'; 
+import 'bootstrap'; 
+import { createApp } from 'vue'; 
 import App from './App.vue';
-import router from './router'; // Импорт вашего файла роутера
+import router from './router'; 
 
 
 const app = createApp(App);
-app.use(router); // Использование роутера
+app.use(router);
 app.mount('#app');

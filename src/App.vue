@@ -285,36 +285,41 @@ right: 0.5rem;
     font-size: 0.5rem;
 }
 .nav-a{
-    font-size: 0.75rem;
-    padding: 0.2rem;
+    font-size: 1rem;
+    padding: 0.15rem
 }
 .nav-a:hover{
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 .logo-img{
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
     margin-left: 0rem;
+    margin-right: -1rem;
 }
 .logo-img:hover{
-    height: 3rem;
-    width: 3rem;
+    height: 3.7rem;
+    width: 3.7rem;
 }
 .logo-img-ksl{
     display: none;
 }
 .social, .login{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+.login{
+    margin-top: 0.2rem;
 }
 .social:hover, .login:hover{
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 2rem;
+    height: 2rem;
 }
 .header{
     flex-direction: row;
+    height: 5.5rem;
 }
 .navbar{
     display: none;
@@ -327,7 +332,7 @@ right: 0.5rem;
     padding: 0rem;
 }
 .name-1{
-    font-size: 0.6rem;
+    font-size: 0.6;
 }
 .matches-apozh{
     display: none;

@@ -147,7 +147,7 @@ margin-left: 8rem;
 .achievements .img-achievements{
   width: 27rem;
   margin-bottom: 5rem;
-  margin-left: 1.5rem;
+  margin-left: 0.5rem;
 }
 .achievements .next-button{
     right: -1rem;

@@ -1,18 +1,20 @@
 <template>
-    <div class="container-two table-dark">
-      <div v-for="(news, index) in newsItems" :key="index" :class="news.className">
+  <div class="container-two table-dark">
+    <div v-for="(news, index) in newsItems" :key="index" :class="news.className">
+      <router-link to="/news" style="text-decoration: none; color: inherit;">
         <h1 class="news">
           <img v-if="news.imgSrc" :src="news.imgSrc" class="news-img" alt="" />
           {{ news.title }}
           <p>{{ news.description }}</p>
         </h1>
-      </div>
-      <h1 class="news-bottom text-center">
-        <span class="shadow">Ще новини...</span>
-      </h1>
+      </router-link>
     </div>
-  </template>
-  
+    <h1 class="news-bottom text-center">
+      <span class="shadow">Ще новини...</span>
+    </h1>
+  </div>
+</template>
+
   <script>
   export default {
     name: 'NewsMini',

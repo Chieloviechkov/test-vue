@@ -7,10 +7,10 @@
         <div class="card-3d-wrap mx-auto">
           <div class="card-3d-wrapper">
             <div class="card-front" :class="{ 'd-none': showRegister }">
-              <LoginApozh></LoginApozh>
+              <LoginApozh @close="closeLogin"></LoginApozh>
             </div>
             <div class="card-back" :class="{ 'd-none': !showRegister }">
-              <RegisterApozh></RegisterApozh>
+              <RegisterApozh @close="closeRegister"></RegisterApozh>
             </div>
           </div>
       </div>
