@@ -1,6 +1,6 @@
 <template>
      <header class= "header bkg-black">
-      <router-link to="/home">
+      <router-link to="/">
         <img src="@/assets/MainLogo.png" alt="logotype" class="logo-img" />
       </router-link>
       <router-link to="/news" class="nav-a">НОВИНИ</router-link>
