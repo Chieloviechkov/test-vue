@@ -9,7 +9,7 @@ import AchievementApozh from './views/AchievementApozh.vue';
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     component: HomePage,
   },
   {
