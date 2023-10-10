@@ -22,7 +22,7 @@ export default {
     };
   },
   mounted() {
-  fetch('http://localhost:8889/footballers/all')
+  fetch('https://apozh-f1a0a5f389fc.herokuapp.com/footballers/all')
     .then(response => response.json())
     .then(data => {
       this.players = data.map(player => ({

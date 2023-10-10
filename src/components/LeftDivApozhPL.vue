@@ -17,7 +17,7 @@ export default {
     };
   },
   mounted() {
-    fetch('http://localhost:8889/lastgames/all')
+    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/lastgames/all')
       .then(response => response.json())
       .then(data => {
         this.matchesData = data.slice(0, 2).map(match => ({

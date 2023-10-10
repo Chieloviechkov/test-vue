@@ -65,7 +65,7 @@ export default {
         formData.append("username", userData.username);
         formData.append("password", userData.password);
 
-        fetch('http://localhost:8889/api/auth/login', {
+        fetch('https://apozh-f1a0a5f389fc.herokuapp.com/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',

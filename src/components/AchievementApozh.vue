@@ -65,7 +65,7 @@ export default {
     };
   },
   created() {
-    fetch('http://localhost:8889/achievements')
+    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/achievements')
       .then(response => response.json())
       .then(data => {
         this.achievements = data.map(achievement => {

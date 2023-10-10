@@ -58,7 +58,7 @@
 },
     async mounted() {
       try {
-        const response = await fetch('http://localhost:8889/teams/all');
+        const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/teams/all');
         const data = await response.json();
         this.teams = data;
         this.sortTeams(); 

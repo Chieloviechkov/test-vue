@@ -77,7 +77,7 @@ export default {
           password: this.password,
         };
 
-        fetch('http://localhost:8889/api/auth/register', {
+        fetch('https://apozh-f1a0a5f389fc.herokuapp.com/api/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',

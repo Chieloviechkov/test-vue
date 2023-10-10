@@ -39,7 +39,7 @@
     methods: {
       async fetchData() {
         try {
-          const response = await fetch('http://localhost:8889/statistics/apozh');
+          const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/statistics/apozh');
           const data = await response.json();
           this.stats.matches = data.matchesPlayed;
           this.stats.wins = data.wins;

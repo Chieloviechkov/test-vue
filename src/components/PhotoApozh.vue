@@ -27,7 +27,7 @@ export default {
   },
   async created() {
     try {
-      const response = await fetch("http://localhost:8889/photos/all");
+      const response = await fetch("https://apozh-f1a0a5f389fc.herokuapp.com/photos/all");
       const data = await response.json();
       const matches = {};
       data.forEach(item => {

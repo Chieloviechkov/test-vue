@@ -26,7 +26,7 @@ export default {
     };
   },
   created() {
-    fetch('http://localhost:8889/news')
+    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/news')
       .then(response => response.json())
       .then(data => {
       

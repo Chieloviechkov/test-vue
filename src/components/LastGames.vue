@@ -46,7 +46,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await fetch('http://localhost:8889/lastgames/all');
+        const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/lastgames/all');
         if (response.ok) {
           const data = await response.json();
           this.matches = data.map(match => ({

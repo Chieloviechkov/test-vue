@@ -63,7 +63,7 @@
       },
       async findPlayerByName(lastName, firstName) {
         try {
-          const response = await fetch('http://localhost:8889/footballers/all');
+          const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/footballers/all');
           const players = await response.json();
           const foundPlayer = players.find(player => player.lastName === lastName && player.name === firstName);
           console.log(foundPlayer);
