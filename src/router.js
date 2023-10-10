@@ -13,6 +13,10 @@ const routes = [
     component: HomePage,
   },
   {
+    path: '/:catchAll(.*)',
+    redirect: '/',
+  },
+  {
     path: '/statistics',
     name: 'Statistic',
     component: StatisticApozh 
