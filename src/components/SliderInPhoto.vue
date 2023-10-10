@@ -9,16 +9,11 @@
       >
         <div class="carousel-photo box-shadow">
           <div class="slides-photo" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-            <div
-              v-for="(slide, index) in slides"
-              :key="index"
-              class="slide-photo"
-              :style="{ backgroundImage: `url(${slide.url})` }"
-              @click="openFullscreen(index)"
-            >
+            <div v-for="(slide, index) in slides" :key="index" class="slide-photo" :style="{ backgroundImage: `url(${slide.url})` }" @click="openFullscreen(index)">
+                <div class="photo-description">{{ hoverText }}</div>
               <img src="@/assets/left-button.png" class="slide-button left-button" @click.stop="prevSlide" />
               <img src="@/assets/right-button.png" class="slide-button right-button" @click.stop="nextSlide" />
-              <div class="hover-text" :class="{ 'd-none': currentIndex > 0 }">{{ hoverText }}</div>
+              
             </div>
           </div>
         </div>
@@ -98,4 +93,15 @@ nextSlide() {
   };
   </script>
  
-  
+  <style scoped>
+  .photo-description{
+    position: absolute;
+    color: white;
+    padding: 0.5rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.562);
+    font-size: 1rem;
+    text-align: center;
+  }
+  </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="cont-weather box-shadow">
+    <div v-if="isAuthenticated" class="cont-weather box-shadow">
       <img :src="require(`@/assets/temperature.png`)" alt="Температура" class="temperature-card">
       <span class="fiolet-color text-align-center">{{ temperature }} °C</span>
       <img v-if="weatherCode === null" :src="require(`@/assets/unknown.png`)" alt="Неизвестно" class="weather-card fiolet-color">
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   data() {
     return {
@@ -21,6 +23,10 @@ export default {
   },
   async created() {
     try {
+      const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated === 'true') {
+      this.$store.dispatch('login');
+    }
       this.loadCachedWeatherData();
       await this.loadWeatherData();
 
@@ -35,6 +41,7 @@ export default {
     clearInterval(this.dataRefreshInterval);
   },  
   computed: {
+    ...mapGetters(['isAuthenticated']),
     isRainy() {
       return this.weatherCode >= 4000 && this.weatherCode < 5000;
     },
@@ -65,6 +72,7 @@ export default {
         this.weatherCode = interval.values.weatherCode;
 
         localStorage.setItem('weatherDataCache', JSON.stringify(weatherData));
+        
       } catch (error) {
         console.error('Ошибка при запросе к API:', error);
         throw error;

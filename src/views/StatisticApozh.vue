@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PlatinumLeague></PlatinumLeague>
     <KSL></KSL>
     <SCL></SCL>
     <KWL></KWL>
@@ -11,6 +12,8 @@
 import SCL from "@/components/SCL.vue";
 import KWL from "@/components/KWL.vue";
 import KSL from "@/components/KSL.vue";
+import PlatinumLeague from "@/components/PlatinumLeagueTournament.vue";
+
 
 export default {
   name: "App",
@@ -18,6 +21,7 @@ export default {
     SCL,
     KWL,
     KSL,
+    PlatinumLeague,
   },
   methods: {
     scrollToTop() {

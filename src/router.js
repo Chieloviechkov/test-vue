@@ -5,7 +5,7 @@ import NewsApozh from './views/NewsApozh.vue';
 import PhotoApozh from './views/PhotoApozh.vue';
 import PlayersApozh from './views/PlayersApozh.vue';
 import AchievementApozh from './views/AchievementApozh.vue';
-
+import PlayerStatistics from '@/components/PlayerStatistics.vue';
 
 const routes = [
   {
@@ -38,7 +38,12 @@ const routes = [
     name: 'Achievement',
     component: AchievementApozh
   },
-  
+  {
+    path: '/player/:lastName/:firstName',
+    name: 'PlayerStatistics',
+    component: PlayerStatistics,
+    props: true
+  },
 ];
 
 const router = createRouter({

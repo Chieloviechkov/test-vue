@@ -13,6 +13,8 @@
           @input="checkEmail"
         />
         <div class="text-light">{{ emailMessage }}</div>
+        <div class="text-light">{{ registrationMessage }}</div>
+
       </div>
       <div class="form-group">
         <label for="password" class="text-light">Password</label>
@@ -26,7 +28,7 @@
         />
         <div class="text-light">{{ passwordMessage }}</div>
       </div>
-      <button :disabled="!isFormValid" @click="closeModal" type="submit" class="button text-light">OK</button>
+      <button :disabled="!isFormValid" class="button text-light">OK</button>
     </form>
   </div>
 </template>
@@ -40,6 +42,7 @@ export default {
       emailMessage: "",
       passwordMessage: "",
       isFormValid: false,
+      registrationMessage: '', 
     };
   },
   methods: {
@@ -67,6 +70,38 @@ export default {
     validateForm() {
       this.isFormValid = this.emailMessage === "" && this.passwordMessage === "";
     },
+    register() {
+      if (this.isFormValid) {
+        const userData = {
+          username: this.username,
+          password: this.password,
+        };
+
+        fetch('http://localhost:8889/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `username=${userData.username}&password=${userData.password}`,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            if (data === 'Registration successful!') {
+              this.registrationMessage = 'Реєстрація успішна!';
+            } else {
+              this.registrationMessage = "Користувач з таким логіном вже існує"; 
+            }
+            this.username = "";
+            this.password = "";
+            this.emailMessage = "";
+            this.passwordMessage = "";
+            this.isFormValid = false;
+          })
+          .catch((error) => {
+            console.error('Ошибка:', error);
+          });
+  }
+},
   },
 };
 </script>

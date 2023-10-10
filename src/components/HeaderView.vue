@@ -9,19 +9,10 @@
       <router-link to="/players" class="nav-a">ГРАВЦІ</router-link>
       <router-link to="/achievements" class="nav-a">ДОСЯГНЕННЯ</router-link>
       <nav class="navbar navbar-light bkg-white">
-        <form class="form-inline" @submit.prevent="performSearch">
-          <input
-            v-model="searchQuery"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Пошук"
-            aria-label="Search"
-            />
-            <img @click="performSearch" src="@/assets/search.svg" alt="search" class="searth" />
+        
             <div v-for="(item, index) in searchResults" :key="index" class="search-result" :style="{ 'background-color': 'rgb(144, 19, 151)' }">
               <p class="result-name">{{ item.name }}</p>
             </div>
-          </form>
         </nav>
       <div>
         <a @click="openLogin">
@@ -54,7 +45,6 @@
   
   <script>
 import LoginForm from "@/components/LoginContainerApozh.vue";
-import { DataArray } from '@/components/ArrayToMainTable.js';
 
 export default {
   data() {
@@ -77,16 +67,6 @@ export default {
     this.activeComponent = null;
     document.body.style.overflow = "auto"; 
   },
-  performSearch() {
-      const searchQuery = this.searchQuery.toLowerCase();
-      this.searchResults = DataArray.filter((item) => {
-        const itemName = item.name.toLowerCase();
-        return itemName.includes(searchQuery);
-      });
-      setTimeout(() => {
-        this.searchResults = [];
-      }, 5000);
-    },
   },
 };
 </script>

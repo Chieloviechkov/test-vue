@@ -1,6 +1,6 @@
 <template>
     <div class="statistic-right">
-      <table class="table-hover table-dark custom font-size-1">
+      <table class="custom-table-hover custom font-size-1">
         <thead>
           <tr class="custom-table">
             <th scope="col" class="custom-table fiolet-color text-center">#</th>
@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(matchesData, index) in dataRows" :key="index" :class="matchesData.rowStyles">
+          <tr v-for="(matchesData, index) in dataRows" :key="index" class="table-row">
           <th scope="row" class="custom-table fiolet-color height-five-r">
             <img :src="matchesData.imgSrc" alt="APOZH" class="imageintable">
           </th>
@@ -52,6 +52,7 @@ export default {
  
 </script>
 <style scoped>
+
 @media screen and (max-width: 767px) {
   .custom-table{
     padding: 0.1rem;

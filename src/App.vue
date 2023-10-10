@@ -646,7 +646,7 @@ right: 0.5rem;
   cursor: default;
   position: absolute;
   width: 100%;
-  bottom: 2.5rem;
+  bottom: 0.4rem;
   color: white;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.700);
@@ -732,6 +732,7 @@ right: 0.5rem;
 }
 .shadow{
     cursor: pointer;
+    
     color: rgba(255, 255, 255, 0.175);
 }
 .shadow:hover{
@@ -770,20 +771,10 @@ right: 0.5rem;
 outline: none;
 }
 .custom{
-    border-radius: 1rem;
+ border-radius: 1rem;
 }
-
-.custom-table{
-    white-space: nowrap;
-    border-bottom: 0.1rem solid white;
-    padding: 0.5rem;
-    cursor: default;
-}
-.custom-table-two{
-    background-color:rgb(34, 4, 37);
-    border-radius: 1rem;
-    text-align: center;
-    font-size: small;
+.custom tr:last-child{
+    border-radius: 50rem ;
 }
 .custom-color{
 color: rgb(197, 26, 238);
@@ -796,7 +787,6 @@ color: rgb(197, 26, 238);
 
 
 .custom-two{
-    margin: 0 0.2rem 0.2rem  0.2rem ;
     cursor: default;
     border-radius: 1rem;
 }
@@ -812,10 +802,21 @@ color: rgb(197, 26, 238);
 .table-dark{
 background-color: rgb(34, 4, 37);
 }
+.custom-table-hover{
+    background-color: rgb(34, 4, 37);
+    color: white;
+    padding: 0.5rem;
+}
+.custom-table{
+    padding: 0.44rem;
+}
 .br-1{
     border-radius: 1rem;
 }
-
+.table-row {
+  border-top: 2px solid #7d7d7d;
+  cursor: default;
+}
 .custom-table-bottom{
     border-radius: 1rem;
     padding: 0.5rem;

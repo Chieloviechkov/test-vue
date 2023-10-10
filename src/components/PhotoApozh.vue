@@ -1,16 +1,16 @@
 <template>
   <div class="photo-body">
-  <div class="photo-cont">
-    <slider
-      v-for="(slideGroup, groupIndex) in slideGroups"
-      :key="groupIndex"
-      :slides="slideGroup"
-      :hover-text="hoverTexts[groupIndex]"
-    ></slider>
-    
+    <div class="photo-cont">
+      <div v-if="isLoading">
+        <img :src="gifUrl" alt="Загрузка данных" class="loading-gif">
+      </div>
+        <div v-for="(match, matchIndex) in matches" :key="matchIndex">
+          <slider :slides="match.photos" :hover-text="match.title"></slider>
+      </div>
+    </div>
   </div>
-</div>
 </template>
+
 <script>
 import Slider from "@/components/SliderInPhoto.vue";
 
@@ -20,72 +20,40 @@ export default {
   },
   data() {
     return {
-      slideGroups: [
-        [
-          {url: require("@/assets/slider2.png") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider6.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-        ],
-        [
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider6.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-        ],
-        [
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-        ],
-        [
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-        ],
-        [
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-          {url: require("@/assets/slider4.jpg") },
-        ],
-        
-      ],
-      hoverTexts: [
-      "Описание фотографий, с какого матча они",
-      "Описание фотографий, с какого матча они",
-      "Описание фотографий, с какого матча они",
-      "Привет",
-      "hello"
-      //Сейчас это всего лишь заглушка. Данные будут приниматься с моего будующего бекенда
-    ],
-    }
+      isLoading: true,
+      matches: [],
+      gifUrl: 'https://i.gifer.com/7SUP.gif',
+    };
   },
-  methods: {
-    openFullscreen(imageUrl) {
-      this.isFullscreen = true;
-      this.fullscreenImageUrl = imageUrl;
-    },
-
-    closeFullscreen() {
-      this.isFullscreen = false;
-      this.fullscreenImageUrl = null;
-    },
+  async created() {
+    try {
+      const response = await fetch("http://localhost:8889/photos/all");
+      const data = await response.json();
+      const matches = {};
+      data.forEach(item => {
+        if (!matches[item.title]) {
+          matches[item.title] = [];
+        }
+        matches[item.title].push({
+          url: item.imageUrl,
+          description: item.title,
+        });
+      });
+      this.matches = Object.keys(matches).map(title => ({
+        title: title,
+        photos: matches[title],
+      }));
+      this.isLoading = false;
+    } catch (error) {
+      console.error("Ошибка загрузки данных:", error);
+      this.isLoading = false;
+    }
   },
 };
 </script>
+
+<style scoped>
+.loading-gif{
+  margin-left: 28rem;
+}
+</style>
