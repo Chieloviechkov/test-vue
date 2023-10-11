@@ -34,14 +34,14 @@ export default {
   
   computed: {
     displayedMatches() {
-      if (window.innerWidth < 767) {
-        const startIndex = this.currentMatchIndex % this.matches.length;
-        return this.matches.slice(startIndex, startIndex + 2);
-      }
-      const start = this.currentMatchIndex;
-      const end = start + this.matchesPerPage;
-      return this.matches.slice(start, end);
-    },
+    if (window.innerWidth < 767) {
+      const startIndex = this.currentMatchIndex % this.matches.length;
+      return this.matches.slice(startIndex, startIndex + 2);
+    } else {
+      const startIndex = this.currentMatchIndex % this.matches.length;
+      return this.matches.slice(startIndex, startIndex + 3);
+    }
+  },
   },
   methods: {
     async fetchData() {
