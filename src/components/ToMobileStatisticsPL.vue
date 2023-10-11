@@ -1,17 +1,17 @@
 <template>
     <div>
       <div v-for="(matches, index) in dividedMatches" :key="index">
-        <GamesApozhCenter :matches="matches" />
+        <MobileStatisticKSL :matches="matches" />
       </div>
     </div>
   </template>
   
   <script>
-  import GamesApozhCenter from "@/components/GamesApozhCenter.vue";
+  import MobileStatisticKSL from "@/components/MobileStatisticKSL.vue";
   
   export default {
     components: {
-      GamesApozhCenter
+      MobileStatisticKSL
     },
     data() {
       return {
@@ -21,8 +21,8 @@
     computed: {
       dividedMatches() {
         const result = [];
-        for (let i = 0; i < this.matches.length; i += 4) {
-          result.push(this.matches.slice(i, i + 4));
+        for (let i = 0; i < this.matches.length; i += 1) {
+          result.push(this.matches.slice(i, i + 1));
         }
         return result;
       }
@@ -31,7 +31,7 @@
 fetch("https://apozh-f1a0a5f389fc.herokuapp.com/lastgames/all")
   .then(response => response.json())
   .then(data => {
-    this.matches = data.slice(2).map(match => ({
+    this.matches = data.slice(0).map(match => ({
       leftTeamLogo: match.homeTeam.logoUrl,
       leftTeamName: match.homeTeam.name,
       leftTeamScore: match.homeTeamGoals,

@@ -3,8 +3,8 @@
     <div class="container-all-statistic">
             <div>
               <div class="d-flex flex-nowrap">
-                <LeftDivApozhPL v-if="window.innerWidth >= 767"></LeftDivApozhPL>
-                <ToMobileStatisticKWL v-else></ToMobileStatisticKWL>
+                <LeftDivApozhPL v-if="window.innerWidth >= 767" class="ml-minus"></LeftDivApozhPL>
+                <ToMobileStatisticsPL v-else></ToMobileStatisticsPL>
                 <PlatinumLeague class="mr-3 ml-3 mb-2 custom-width"></PlatinumLeague>
               </div>
                 <div class="mr-3">
@@ -23,7 +23,7 @@ import PlatinumLeague from "@/components/PlatinumLeague.vue";
 import LeftDivApozhPL from "@/components/LeftDivApozhPL.vue";
 import RightTableStatisticInfoPL from "@/components/RightTableInfoPL.vue";
 import GamesCenterInfoPL from "@/components/GamesCenterInfoPL.vue";
-import ToMobileStatisticKWL from "@/components/ToMobileStatisticKWL.vue"; 
+import ToMobileStatisticsPL from "@/components/ToMobileStatisticsPL.vue"; 
 
 
 
@@ -36,7 +36,7 @@ components: {
     LeftDivApozhPL,
   RightTableStatisticInfoPL,
   GamesCenterInfoPL,
-  ToMobileStatisticKWL,
+  ToMobileStatisticsPL,
 },
   mounted() {
     window.addEventListener("resize", this.handleWindowResize);
@@ -64,6 +64,9 @@ components: {
     width: 41rem;
     height: 36rem;
 }
+.ml-minus{
+  margin-left: -1rem;
+}
 @media screen and (max-width: 767px) {
   .container-all-statistic {
     margin-left: 0;
@@ -79,6 +82,9 @@ components: {
   }
   .d-flex {
     flex-direction: column-reverse;
+  }
+  .custom-width{
+    width: 28.5rem;
   }
 }
 </style>

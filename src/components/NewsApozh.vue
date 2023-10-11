@@ -63,6 +63,9 @@
   };
   </script>
   <style scoped>
+ .ml-8 {
+  margin-left: 8rem;
+  }
   .img-news{
     height: 33rem;
   }
@@ -89,13 +92,14 @@
   width: 95%;
 }
 .achievements .slide-overlay-news-two{
-    bottom: -12rem;
+    bottom: 0.9rem;
     height: 7rem;
-    width: 96.5%;
-    left: 0.88rem;
+    width: 100%;
+    left: 0.38rem;
 }
 .img-news{
-  width: 27rem;
+  width: 28rem;
+  height: 20rem;
   margin-left: 0.75rem;
   margin-bottom: 2rem;
 }

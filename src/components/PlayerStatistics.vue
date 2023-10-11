@@ -7,9 +7,8 @@
         <h1 v-if="player">Статистика гравця: {{ player.name }} {{ player.lastName }}</h1>
         <div v-if="player" class="player">
             <img v-if="player.imgUrl && player.imgUrl !== '/assets/bd2744c0b61f9dbf60d1d14fe2bbbf59/football_photo_thumb.png'" :src="player.imgUrl" alt="Фотография игрока" class="img_player box-shadow">
-<img v-else :src="defaultImage" alt="Изображение по умолчанию" class="img_player box-shadow">
-
-          <div class="ml-25pers">
+            <img v-else :src="defaultImage" alt="Изображение по умолчанию" class="img_player box-shadow">
+        <div class="ml-5pers">
           <p v-if="player.number !== undefined" class="font-size-3r">Номер: <span class="fiolet-color">{{ player.number }}</span></p>
           <p v-if="player.position" class="font-size-3r">Позиція: <span class="fiolet-color">{{ player.position }}</span></p>
           <p v-if="player.games !== undefined" class="font-size-3r">Кількість матчів: <span class="fiolet-color"> {{ player.games }}</span></p>
@@ -97,7 +96,21 @@
     margin-top: 1.5rem;
     margin-bottom: 3.15rem;
   }
-  .ml-25pers{
+  .ml-5pers{
     margin-left: 5%;
+  }
+  @media (max-width: 767px) {
+    .player{
+      flex-direction: column-reverse;
+      margin-left: 0;
+    }
+    .img_player{
+      margin-left: 4rem;
+      width: 75%;
+    }
+    .ml-5pers{
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>

@@ -28,7 +28,6 @@ export default {
   margin-left: 1rem;
   width: 28.5rem
 }
-
 .matches-statistic {
   position: relative;
 }
