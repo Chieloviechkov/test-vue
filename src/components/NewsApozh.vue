@@ -1,6 +1,9 @@
 <template>
   <div class="achievements">
     <div class="left-title-slider">
+      <div>
+        <WeatherKyiv class="ml-8 mt-3"></WeatherKyiv>
+      </div>
       <div v-for="(achievement, index) in achievements" :key="index" class="slide-title table-dark mini-box-shadow" @click="changeSlide(index)" @mouseover="changeSlide(index)">
         <h2 class="title-text">{{ achievement.news }}</h2>
       </div>
@@ -20,7 +23,12 @@
 </template>
   
   <script>
+  import WeatherKyiv from "@/components/WeatherKyiv.vue";
+
   export default {
+    components: {
+    WeatherKyiv,
+  },
     data() {
       return {
         achievements: [],
