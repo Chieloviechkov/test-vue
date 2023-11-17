@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { registerLink } from '@/components/config';
+
 export default {
   data() {
     return {
@@ -77,7 +79,7 @@ export default {
           password: this.password,
         };
 
-        fetch('https://apozh-f1a0a5f389fc.herokuapp.com/api/auth/register', {
+        fetch(registerLink, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',

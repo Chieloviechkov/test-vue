@@ -29,6 +29,7 @@
     </table>
   </template>
   <script>
+import { allTeamsLink } from '@/components/config';
   export default {
     data() {
       return {
@@ -58,7 +59,7 @@
 },
     async mounted() {
       try {
-        const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/teams/all');
+        const response = await fetch(allTeamsLink);
         const data = await response.json();
         this.teams = data;
         this.sortTeams(); 

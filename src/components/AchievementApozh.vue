@@ -52,6 +52,7 @@
 <script>
 import WeatherKyiv from "@/components/WeatherKyiv.vue";
 import PlatinumLeague from "@/components/PlatinumLeague.vue";
+import { achievementsLink } from '@/components/config';
 
 export default {
   components: {
@@ -65,7 +66,7 @@ export default {
     };
   },
   created() {
-    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/achievements')
+    fetch(achievementsLink)
       .then(response => response.json())
       .then(data => {
         this.achievements = data.map(achievement => {

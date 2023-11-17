@@ -10,6 +10,7 @@
 <script>
 import CardApozhPlayer from '@/components/CardApozhPlayer.vue';
 import defaultImage from '@/assets/none.png';
+import { footballersLink } from '@/components/config';
 
 export default {
   components: {
@@ -22,7 +23,7 @@ export default {
     };
   },
   mounted() {
-  fetch('https://apozh-f1a0a5f389fc.herokuapp.com/footballers/all')
+  fetch(footballersLink)
     .then(response => response.json())
     .then(data => {
       this.players = data.map(player => ({

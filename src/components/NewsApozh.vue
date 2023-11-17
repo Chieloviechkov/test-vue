@@ -24,6 +24,7 @@
   
   <script>
   import WeatherKyiv from "@/components/WeatherKyiv.vue";
+  import { news } from '@/components/config';
 
   export default {
     components: {
@@ -36,7 +37,7 @@
       };
     },
     created() {
-    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/news')
+    fetch(news)
       .then(response => response.json())
       .then(data => {
         this.achievements = data;

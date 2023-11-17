@@ -13,6 +13,7 @@
 
 <script>
 import Slider from "@/components/SliderInPhoto.vue";
+import { photosLink } from '@/components/config';
 
 export default {
   components: {
@@ -27,7 +28,7 @@ export default {
   },
   async created() {
     try {
-      const response = await fetch("https://apozh-f1a0a5f389fc.herokuapp.com/photos/all");
+      const response = await fetch(photosLink);
       const data = await response.json();
       const matches = {};
       data.forEach(item => {

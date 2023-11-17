@@ -12,6 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { weatherLink } from '@/components/config';
 
 export default {
   data() {
@@ -58,11 +59,8 @@ export default {
   methods: {
     async loadWeatherData() {
       try {
-        const apiKey = 'eoDOFox9IEGrAfnFvqgqYSKDdX6tD8Vn';
-        const latitude = '50.4501';
-        const longitude = '30.5234';
-
-        const apiUrl = `https://api.tomorrow.io/v4/timelines?location=${latitude},${longitude}&fields=temperature,weatherCode&timesteps=1h&units=metric&apikey=${apiKey}`;
+        
+        const apiUrl = weatherLink;
 
         const response = await fetch(apiUrl);
         const weatherData = await response.json();

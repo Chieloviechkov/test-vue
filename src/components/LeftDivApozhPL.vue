@@ -6,6 +6,7 @@
   
   <script>
   import MatchesComponent from "@/components/LeftDivGamesApozh.vue";
+  import { lastgames } from '@/components/config';
 
 export default {
   components: {
@@ -17,7 +18,7 @@ export default {
     };
   },
   mounted() {
-    fetch('https://apozh-f1a0a5f389fc.herokuapp.com/lastgames/all')
+    fetch(lastgames)
       .then(response => response.json())
       .then(data => {
         this.matchesData = data.slice(0, 2).map(match => ({

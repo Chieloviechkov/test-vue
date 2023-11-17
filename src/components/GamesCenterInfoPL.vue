@@ -8,7 +8,8 @@
   
   <script>
   import GamesApozhCenter from "@/components/GamesApozhCenter.vue";
-  
+  import { lastgames } from '@/components/config';
+
   export default {
     components: {
       GamesApozhCenter
@@ -28,7 +29,7 @@
       }
     },
     mounted() {
-fetch("https://apozh-f1a0a5f389fc.herokuapp.com/lastgames/all")
+fetch(lastgames)
   .then(response => response.json())
   .then(data => {
     this.matches = data.slice(2).map(match => ({

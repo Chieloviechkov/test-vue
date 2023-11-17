@@ -25,6 +25,7 @@
   </template>
   
   <script>
+    import { mainStatisticsLink } from '@/components/config';
   export default {
     data() {
       return {
@@ -39,7 +40,7 @@
     methods: {
       async fetchData() {
         try {
-          const response = await fetch('https://apozh-f1a0a5f389fc.herokuapp.com/statistics/apozh');
+          const response = await fetch(mainStatisticsLink);
           const data = await response.json();
           this.stats.matches = data.matchesPlayed;
           this.stats.wins = data.wins;
