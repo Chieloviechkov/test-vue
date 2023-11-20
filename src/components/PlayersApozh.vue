@@ -27,15 +27,15 @@ export default {
     .then(response => response.json())
     .then(data => {
       this.players = data.map(player => ({
-     number: player.number !== null ? player.number.toString() : '',
-     lastName: player.lastName,
-     firstName: player.name,
-     position: player.position,
-     birthdate: player.dateOfBirth,
-     image: player.imgUrl === '/assets/bd2744c0b61f9dbf60d1d14fe2bbbf59/football_photo_thumb.png'
-       ? defaultImage
-       : player.imgUrl
-        }));
+        number: player.number !== null ? player.number.toString() : '',
+        lastName: player.lastName,
+        firstName: player.firstName,
+        position: player.position,
+        birthdate: player.dateOfBirth,
+        image: player.imgUrl === '/assets/bd2744c0b61f9dbf60d1d14fe2bbbf59/football_photo_thumb.png'
+          ? defaultImage
+          : player.imgUrl
+      }));
       this.isLoading = false; 
     })
     .catch(error => {

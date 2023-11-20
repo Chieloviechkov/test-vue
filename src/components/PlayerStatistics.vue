@@ -4,7 +4,7 @@
       <img :src="gifUrl" alt="Загрузка данных" class="loading-gif">
         </div>
       <div v-else>
-        <h1 v-if="player">Статистика гравця: {{ player.name }} {{ player.lastName }}</h1>
+        <h1 v-if="player">Статистика гравця: {{ player.firstName }} {{ player.lastName }}</h1>
         <div v-if="player" class="player">
             <img v-if="player.imgUrl && player.imgUrl !== '/assets/bd2744c0b61f9dbf60d1d14fe2bbbf59/football_photo_thumb.png'" :src="player.imgUrl" alt="Фотография игрока" class="img_player box-shadow">
             <img v-else :src="defaultImage" alt="Изображение по умолчанию" class="img_player box-shadow">
@@ -66,7 +66,7 @@
         try {
           const response = await fetch(footballersLink);
           const players = await response.json();
-          const foundPlayer = players.find(player => player.lastName === lastName && player.name === firstName);
+          const foundPlayer = players.find(player => player.lastName === lastName && player.firstName === firstName);
           console.log(foundPlayer);
           return foundPlayer;
         } catch (error) {
