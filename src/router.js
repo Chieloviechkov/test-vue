@@ -9,19 +9,10 @@ import PlayerStatistics from '@/components/PlayerStatistics.vue';
 
 const routes = [
   {
-    path: '/',
-    component: HomePage,
-  },
-  {
-    path: '/:catchAll(.*)',
-    redirect: '/',
-  },
-  {
     path: '/statistics',
     name: 'Statistic',
     component: StatisticApozh 
   },
-  
   {
     path: '/news',
     name: 'News',
@@ -47,6 +38,14 @@ const routes = [
     name: 'PlayerStatistics',
     component: PlayerStatistics,
     props: true
+  },
+  {
+    path: '/',
+    component: HomePage,
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/',
   },
 ];
 
