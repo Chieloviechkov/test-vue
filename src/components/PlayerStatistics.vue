@@ -6,7 +6,7 @@
       <div v-else>
         <h1 v-if="player">Статистика гравця: {{ player.firstName }} {{ player.lastName }}</h1>
         <div v-if="player" class="player">
-            <img v-if="player.imgUrl && player.imgUrl !== '/assets/bd2744c0b61f9dbf60d1d14fe2bbbf59/football_photo_thumb.png'" :src="player.imgUrl" alt="Фотография игрока" class="img_player box-shadow">
+            <img v-if="player.imgUrl && player.imgUrl !== '/assets/7fae8dddfb42ec12e3d964cda0a45801/football_photo_thumb.png'" :src="player.imgUrl" alt="Фотография игрока" class="img_player box-shadow">
             <img v-else :src="defaultImage" alt="Изображение по умолчанию" class="img_player box-shadow">
         <div class="ml-5pers">
           <p v-if="player.number !== undefined" class="font-size-3r">Номер: <span class="fiolet-color">{{ player.number }}</span></p>
